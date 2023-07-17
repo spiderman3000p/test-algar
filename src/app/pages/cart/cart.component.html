@@ -17,7 +17,9 @@
           <mat-card-title-group>
             <img mat-card-sm-image [src]="product.picture" />
             <mat-card-title
-              >{{ product.quantity }} x {{ product.title }}</mat-card-title
+              ><span class="max-lines-2"
+                >{{ product.quantity }} x {{ product.title }}</span
+              ></mat-card-title
             >
             <mat-card-subtitle
               >unit price {{ product.unitPrice | currency }}</mat-card-subtitle

@@ -1,10 +1,15 @@
 .product-list-container {
   ul {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+
     li {
       list-style: none;
       display: flex;
       flex-direction: column;
-      width: 300px;
       border: 1px solid lightgray;
       border-radius: 20px;
       position: relative;
@@ -42,7 +47,7 @@
         p {
         }
         span {
-          font-size: 1.5rem;
+          font-size: 1rem;
           font-weight: 900;
           small {
             text-decoration: line-through;

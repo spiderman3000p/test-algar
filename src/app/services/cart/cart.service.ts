@@ -31,10 +31,10 @@ export class CartService {
 
   addToCart(product: Product, qty: number) {
     if (product.qtyOnCart > 0) {
-      updateDoc(doc(this.firestore, 'cart/' + product.id), {
+      setDoc(doc(this.firestore, 'cart/' + product.id), {
         quantity: product.qtyOnCart + qty,
         total: (product.qtyOnCart + qty) * product.price,
-        oldUnitPrice: product.oldPrice,
+        oldUnitPrice: product.oldPrice ?? product.price,
       });
     } else {
       const cartProduct = new CartProduct(product, qty);
