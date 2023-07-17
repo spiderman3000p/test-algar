@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pickvoice": {
+      "hosting": {
+        "test-algar": [
+          "test-algar"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pickvoice"
+  }
+}

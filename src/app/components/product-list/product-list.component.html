@@ -1,0 +1,39 @@
+<section class="product-list-container">
+  <ul>
+    <li
+      *ngFor="let product of products"
+      [matBadge]="product.qtyOnCart"
+      [matBadgeHidden]="product.qtyOnCart === 0"
+      matBadgeSize="large"
+    >
+      <div class="offer-label" *ngIf="product.hasOffer">
+        {{ product.discountLabel }}
+      </div>
+      <picture>
+        <img [src]="product.picture" />
+      </picture>
+      <article>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <span
+          >{{ product.price | currency }}
+          <small *ngIf="product.oldPrice">{{
+            product.oldPrice | currency
+          }}</small></span
+        >
+        <div class="add-button">
+          <button
+            mat-mini-fab
+            color="primary"
+            (click)="removeFromCart(product, 1)"
+          >
+            -
+          </button>
+          <button mat-mini-fab color="primary" (click)="addToCart(product, 1)">
+            +
+          </button>
+        </div>
+      </article>
+    </li>
+  </ul>
+</section>

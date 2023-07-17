@@ -1,0 +1,57 @@
+<section class="cart-container">
+  <ng-container *ngIf="cartProducts.length > 0">
+    <div class="header">
+      <span>
+        <button mat-icon-button routerLink="/">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h1>Your items</h1>
+      </span>
+      <button mat-button (click)="onClearCart()" color="accent">
+        Clear cart
+      </button>
+    </div>
+    <div class="cart-list">
+      <mat-card *ngFor="let product of cartProducts">
+        <mat-card-header>
+          <mat-card-title-group>
+            <img mat-card-sm-image [src]="product.picture" />
+            <mat-card-title
+              >{{ product.quantity }} x {{ product.title }}</mat-card-title
+            >
+            <mat-card-subtitle
+              >unit price {{ product.unitPrice | currency }}</mat-card-subtitle
+            >
+            <mat-card-subtitle
+              ><h1>TOTAL {{ product.total | currency }}</h1></mat-card-subtitle
+            >
+          </mat-card-title-group>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="totals-container">
+      <div class="total-item">
+        <p>Total</p>
+        <p>{{ total | currency }}</p>
+      </div>
+    </div>
+    <div class="pay-button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        class="pay-button"
+        (click)="onCheckout()"
+      >
+        Checkout
+      </button>
+    </div>
+  </ng-container>
+</section>
+<section *ngIf="cartProducts.length === 0" class="cart-empty-container">
+  <img src="assets/images/cart-empty.png" />
+  <h2>Your cart is empty</h2>
+  <p>Let's go for shopping and add some products!</p>
+  <button mat-raised-button color="primary" routerLink="/">
+    Go to shopping
+  </button>
+</section>
